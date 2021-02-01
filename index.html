@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en-GB" class="no-js">
+    <head>
+        <meta charset="utf-8" />
+
+        <!-- SEO -->
+        <meta
+            name="description"
+            content="Don't forget to add a 1-2 sentence description here."
+        />
+        <meta
+            name="keywords"
+            content="Don't forget to add 20-30 important keywords here."
+        />
+
+        <!-- Mobile viewport optimization -->
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+        <!-- Run IE in highest available mode / Chrome frame should start if installed -->
+        <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+
+        <!-- Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading -->
+        <meta http-equiv="cleartype" content="on" />
+
+        <meta name="description" content="*** Enter Details Here ***" />
+
+        <!-- FavIcon links
+        *********************************************************************** -->
+        <link
+            rel="apple-touch-icon"
+            sizes="57x57"
+            href="_images/favicon/apple-icon-57x57.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="60x60"
+            href="_images/favicon/apple-icon-60x60.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="72x72"
+            href="_images/favicon/apple-icon-72x72.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="_images/favicon/apple-icon-76x76.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="114x114"
+            href="_images/favicon/apple-icon-114x114.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="120x120"
+            href="_images/favicon/apple-icon-120x120.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="_images/favicon/apple-icon-144x144.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="152x152"
+            href="_images/favicon/apple-icon-152x152.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="_images/favicon/apple-icon-180x180.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="_images/favicon/android-icon-192x192.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="_images/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="_images/favicon/favicon-96x96.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="_images/favicon/favicon-16x16.png"
+        />
+        <link rel="manifest" href="_images/favicon/manifest.json" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta
+            name="msapplication-TileImage"
+            content="../_images/favicon/ms-icon-144x144.png"
+        />
+        <meta name="theme-color" content="#ffffff" />
+
+        <!--Google Analytics
+        *********************************************************************** -->
+        <script></script>
+
+        <!--Google Fonts
+        *********************************************************************** -->
+        <link
+            href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
+            rel="stylesheet"
+        />
+
+        <!-- CSS Files
+        *********************************************************************** -->
+        <link href="_css/myStyles.css" rel="stylesheet" type="text/css" />
+
+        <!-- IE Bugs
+        *********************************************************************** -->
+        <!--Overcome lack of differentiation between device width and viewport width-->
+        <style>
+            @-ms-viewport {
+                width: device-width;
+            }
+
+            @-o-viewport {
+                width: device-width;
+            }
+
+            @viewport {
+                width: device-width;
+            }
+        </style>
+
+        <script>
+            if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+                var msViewportStyle = document.createElement('style');
+                msViewportStyle.appendChild(
+                    document.createTextNode(
+                        '@-ms-viewport{width:auto!important}',
+                    ),
+                );
+                document.querySelector('head').appendChild(msViewportStyle);
+            }
+        </script>
+
+        <!--Overcome IE gradient effect error-->
+        <!--[if gte IE 9]
+                <style type="text/css">
+                    .gradient { filter: none; }
+                </style>
+            <![endif]-->
+
+        <!--Overcome early IE bugs-->
+        <!--[if lt IE 8]
+                <link rel="stylesheet" type="text/css" href="_css/ie7.css" />
+            <![endif]-->
+
+        <!--Make animated images appear in IE-->
+        <!--[if lte IE 9]
+                <style type="text/css">
+                    .animated {
+                        opacity: 1;
+                    }
+                </style>
+            <![endif]-->
+
+        <!--Respond.js for IE8 support of media queries-->
+        <!--[if lt IE 9]
+                <script src="_scripts/respond.min.js"></script>
+            <![endif]-->
+
+        <!-- jQuery
+        *********************************************************************** -->
+
+        <!--Fallback in case CDN fails to load
+        *********************************************************************** -->
+        <!--
+            <script>window.jQuery || document.write('<script src="_fallback/jquery-1.12.4.min.js"><\/script>')</script>
+        -->
+
+        <!--Modernizr
+        *********************************************************************** -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script>
+            try {
+                Modernizr;
+            } catch (e) {
+                document.write(
+                    '<script src="_fallback/modernizr-custom-ALL.js"><\/script>',
+                );
+            }
+        </script>
+
+        <!--Removes the 300ms delay on link click on touch devices
+        **************************************************************************** -->
+        <script
+            type="application/javascript"
+            src="_scripts/fastclick.min.js"
+        ></script>
+        <script>
+            var attachFastClick = Origami.fastclick;
+            attachFastClick(document.body);
+        </script>
+
+        <!--Cookie Consent
+        *********************************************************************** -->
+        <!--
+        <script type="text/javascript">
+            window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on this website","dismiss":"Got it!","learnMore":"More info","link":"http://evolvingyourfuture.co.uk/__footer-links/privacy-policy.html","theme":"dark-floating"};
+        </script>
+
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+        -->
+
+        <!--Scripts
+        *********************************************************************** -->
+        <script src="_scripts/myScripts.js"></script>
+
+        <title>Advanced CSS Skills Website</title>
+    </head>
+
+    <body>
+        <header class="header">
+            <div class="header__logo-box">
+                <img
+                    src="_images/logo-white.png"
+                    alt="company logo"
+                    class="header__logo"
+                />
+            </div>
+
+            <div class="header__text-box">
+                <h1 class="heading-primary">
+                    <span class="heading-primary--main">Outdoors</span>
+                    <span class="heading-primary--sub"
+                        >is where life happens</span
+                    >
+                </h1>
+
+                <a href="#" class="btn btn--white btn--animated"
+                    >Discover our tours</a
+                >
+            </div>
+
+            <nav></nav>
+        </header>
+    </body>
+</html>
