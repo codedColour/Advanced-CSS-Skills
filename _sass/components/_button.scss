@@ -1,0 +1,65 @@
+.btn {
+
+    // Style
+    &--white {
+        background-color: $colour-white;
+        color: $colour-text;
+    }
+
+    // States
+    &:link,
+    &:visited {    
+        @extend %btn-placeholder;
+        
+        transition: all .2s;
+        position: relative; /*set so .btn::after absolute positioning works*/       
+    }
+
+    &:hover {
+        transform: translateY(-.3rem);
+        box-shadow: 0 1rem 2rem rgba($colour-black,.2);
+    }
+    &:active {
+        transform: translateY(-1px);
+        /*this is in relation to the original state. This means -1px will effectively move the link down 2px as the hover state will have moved it up 3px*/
+
+        box-shadow: 0 .5rem 1rem rgba($colour-black,.4);
+    }
+
+    // Button background effect
+    &::after {
+        /*This creates a dummy link behind the original one. We can then apply styles to have effects on its hover state. You must always set content and display properties. CSS treats this as a child of the original (in this case.btn) and so 100% height ad width will take up the same space as that specified for the .btn.*/
+    
+        /*: is used for pseudo-selectors like hover. :: is used for pseudo-content such as before and after. :: is not supported in IE8*/
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all .4s;
+    }
+    
+    &--white::after {
+        background-color: $colour-white;
+    }
+    
+    &:hover::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0
+    }
+
+    // Animation
+    &--animated {
+        -webkit-animation: moveInUp .5s ease-out .75s;
+                animation: moveInUp .5s ease-out .75s;
+    
+        /*to stop the link from appearing and then animating we use the below property to set the initial opacity to zero*/
+        -webkit-animation-fill-mode: backwards;
+                animation-fill-mode: backwards;
+    }
+
+}
