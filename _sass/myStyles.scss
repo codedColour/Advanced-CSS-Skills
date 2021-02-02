@@ -1,4 +1,3 @@
-/*****  IMPORTS   *****/
 @import "abstracts/functions";
 @import "abstracts/mixins";
 @import "abstracts/variables";
@@ -10,8 +9,10 @@
 @import "base/utilities";
 
 @import "components/button";
+@import "components/composition";
 
 @import "layout/header";
+@import "layout/fluid-grid";
 
 @import "pages/home";
 

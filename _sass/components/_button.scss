@@ -63,3 +63,31 @@
     }
 
 }
+
+.btn-text {
+    
+    &:link,
+    &:visited {
+        font-size: $default-font-size;
+        color: $colour-primary;
+        font-weight: 700;
+        display: inline-block;
+        text-decoration: none;
+        border-bottom: 1px solid $colour-primary;
+        padding: .3rem;
+        background-color: transparent;
+        transition: all .2s;        
+    }
+
+    &:hover {
+        background-color: $colour-primary;
+        color: $colour-white;
+        transform: translateY(-.2rem);
+        box-shadow: 0 1rem 2rem rgba($colour-black,.15);
+    }
+
+    &:active {
+        transform: translate(0);
+        box-shadow: 0 .5rem 1rem rgba($colour-black,.4);
+    }
+}
