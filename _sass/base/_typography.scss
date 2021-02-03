@@ -45,15 +45,9 @@ body {
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 0.2rem;
-    background-image: linear-gradient(
-        to right,
-        $colour-primary-light,
-        $colour-primary-dark
-    );
-    display: inline-block; // so background colour only goes to end of text
-    -webkit-background-clip: text;
-    background-clip: text; // clips the backgrou nd image to the lettering
-    color: transparent; // lets the background-image show through
+    
+    @include gradient-text-overlay;
+
     transition: all .2s;
 
     &:hover {

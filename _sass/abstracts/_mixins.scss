@@ -1,6 +1,6 @@
 @mixin clearfix {
     &::after {
-        content: "";
+        content: '';
         clear: both;
         display: table;
     }
@@ -15,7 +15,30 @@
 
 @mixin style-button {
     display: inline-block;
-    border: none; 
+    border: none;
     border-radius: 10rem;
     padding: 1.5rem 4rem;
+}
+
+@mixin gradient-image-overlay($url) {
+    background: linear-gradient(
+            to right bottom,
+            rgba($colour-primary-light, 0.8),
+            rgba($colour-primary-dark, 0.8)
+        ),
+        url($url);
+    background-size: cover;
+    background-position: top;
+}
+
+@mixin gradient-text-overlay {
+    background-image: linear-gradient(
+        to right,
+        $colour-primary-light,
+        $colour-primary-dark
+    );
+    display: inline-block; // so background colour only goes to end of text
+    -webkit-background-clip: text;
+    background-clip: text; // clips the backgrou nd image to the lettering
+    color: transparent;
 }

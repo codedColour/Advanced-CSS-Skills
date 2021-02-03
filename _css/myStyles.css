@@ -270,6 +270,33 @@ body {
   transform: scale(0.95);
 }
 
+.feature-box {
+  text-align: center;
+  padding: 2.5rem;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.2);
+  transition: all .3s;
+}
+
+.feature-box__icon {
+  font-size: 6rem;
+  background-image: linear-gradient(to right, #7ed56f, #28b485);
+  display: inline-block;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.feature-box__text {
+  font-size: 1.5rem;
+}
+
+.feature-box:hover {
+  transform: scale(1.03) translateY(-1.5rem);
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.15);
+}
+
 .header {
   position: relative;
   height: 95vh;
@@ -307,7 +334,7 @@ body {
 }
 
 .row::after {
-  content: "";
+  content: '';
   clear: both;
   display: table;
 }
@@ -346,7 +373,20 @@ body {
 
 .section-about {
   background-color: #f7f7f7;
-  padding: 25rem 0;
+  padding: 25rem 0 35rem;
   margin-top: -20vh;
+}
+
+.section-features {
+  background: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../_images/nat-4.jpg");
+  background-size: cover;
+  background-position: top;
+  padding: 20rem 0;
+  transform: skewY(-7deg);
+  margin-top: -13rem;
+}
+
+.section-features > * {
+  transform: skewY(7deg);
 }
 /*# sourceMappingURL=myStyles.css.map */
