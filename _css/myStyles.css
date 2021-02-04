@@ -297,6 +297,52 @@ body {
   box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.15);
 }
 
+.card {
+  position: relative;
+  text-align: center;
+  border-radius: 3px;
+  background-color: #fff;
+  box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+}
+
+.card__picture {
+  height: 23rem;
+  background-blend-mode: screen;
+  background-size: cover;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.card__picture--1 {
+  background: linear-gradient(to right bottom, rgba(255, 185, 0, 0.8), rgba(255, 119, 48, 0.8)), url("../_images/nat-5.jpg");
+}
+
+.card__heading {
+  font-size: 2rem;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.card__heading span {
+  display: inline-block;
+  padding: 1rem;
+  font-weight: 350;
+  background: linear-gradient(to right bottom, rgba(255, 185, 0, 0.8), rgba(255, 119, 48, 0.8));
+}
+
+.card__heading--span1 {
+  position: absolute;
+  right: .5rem;
+  bottom: 2rem;
+}
+
+.card:hover {
+  transform: rotateY(180deg);
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.15);
+}
+
 .header {
   position: relative;
   height: 95vh;
@@ -388,5 +434,11 @@ body {
 
 .section-features > * {
   transform: skewY(7deg);
+}
+
+.section-tours {
+  background-color: #f7f7f7;
+  padding: 25rem 0 35rem;
+  margin-top: -20vh;
 }
 /*# sourceMappingURL=myStyles.css.map */
