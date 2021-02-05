@@ -1,37 +1,49 @@
 .btn {
-
     // Style
+    @include style-button;
+
     &--white {
         background-color: $colour-white;
-        color: $colour-text;
+        @include style-link-text($colour-text);
+
+        &::after {
+            background-color: $colour-white;
+        }
+    }
+
+    &--green {
+        background-color: $colour-primary;
+        @include style-link-text($colour-white);
+
+        &::after {
+            background-color: $colour-primary;
+        }
     }
 
     // States
     &:link,
-    &:visited {    
-        @extend %btn-placeholder;
-        
-        transition: all .2s;
-        position: relative; /*set so .btn::after absolute positioning works*/       
+    &:visited {
+        transition: all 0.2s;
+        position: relative; /*set so .btn::after absolute positioning works*/
     }
 
     &:hover {
-        transform: translateY(-.3rem);
-        box-shadow: 0 1rem 2rem rgba($colour-black,.2);
+        transform: translateY(-0.3rem);
+        box-shadow: 0 1rem 2rem rgba($colour-black, 0.2);
     }
     &:active {
         transform: translateY(-1px);
         /*this is in relation to the original state. This means -1px will effectively move the link down 2px as the hover state will have moved it up 3px*/
 
-        box-shadow: 0 .5rem 1rem rgba($colour-black,.4);
+        box-shadow: 0 0.5rem 1rem rgba($colour-black, 0.4);
     }
 
     // Button background effect
     &::after {
         /*This creates a dummy link behind the original one. We can then apply styles to have effects on its hover state. You must always set content and display properties. CSS treats this as a child of the original (in this case.btn) and so 100% height ad width will take up the same space as that specified for the .btn.*/
-    
+
         /*: is used for pseudo-selectors like hover. :: is used for pseudo-content such as before and after. :: is not supported in IE8*/
-        content: "";
+        content: '';
         display: inline-block;
         height: 100%;
         width: 100%;
@@ -40,32 +52,26 @@
         top: 0;
         left: 0;
         z-index: -1;
-        transition: all .4s;
+        transition: all 0.4s;
     }
-    
-    &--white::after {
-        background-color: $colour-white;
-    }
-    
+
     &:hover::after {
         transform: scaleX(1.4) scaleY(1.6);
-        opacity: 0
+        opacity: 0;
     }
 
     // Animation
     &--animated {
-        -webkit-animation: moveInUp .5s ease-out .75s;
-                animation: moveInUp .5s ease-out .75s;
-    
+        -webkit-animation: moveInUp 0.5s ease-out 0.75s;
+        animation: moveInUp 0.5s ease-out 0.75s;
+
         /*to stop the link from appearing and then animating we use the below property to set the initial opacity to zero*/
         -webkit-animation-fill-mode: backwards;
-                animation-fill-mode: backwards;
+        animation-fill-mode: backwards;
     }
-
 }
 
 .btn-text {
-    
     &:link,
     &:visited {
         font-size: $default-font-size;
@@ -74,20 +80,20 @@
         display: inline-block;
         text-decoration: none;
         border-bottom: 1px solid $colour-primary;
-        padding: .3rem;
+        padding: 0.3rem;
         background-color: transparent;
-        transition: all .2s;        
+        transition: all 0.2s;
     }
 
     &:hover {
         background-color: $colour-primary;
         color: $colour-white;
-        transform: translateY(-.2rem);
-        box-shadow: 0 1rem 2rem rgba($colour-black,.15);
+        transform: translateY(-0.2rem);
+        box-shadow: 0 1rem 2rem rgba($colour-black, 0.15);
     }
 
     &:active {
         transform: translate(0);
-        box-shadow: 0 .5rem 1rem rgba($colour-black,.4);
+        box-shadow: 0 0.5rem 1rem rgba($colour-black, 0.4);
     }
 }

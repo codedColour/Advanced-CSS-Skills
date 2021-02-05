@@ -1,59 +1,197 @@
+// FUNCTIONALITY
 .card {
     position: relative;
-    text-align: center;
-    border-radius: 3px;
-    background-color: $colour-white;
-    box-shadow: 0 1.5rem 3rem rgba($colour-black, 0.2);
-    transition: all 0.3s;
+    perspective: 150rem;
+    height: 52rem;
 
+    &__side {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        font-size: 2rem;
+        height: 52rem;
+        border-radius: 0.3rem;
+        overflow: hidden;
+        box-shadow: 0 1.5rem 4rem rgba($colour-black, 0.15);
+        transition: all 0.8s ease;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+
+        &--front {
+            background-color: $colour-white;
+        }
+
+        &--back {
+            transform: rotateY(180deg);
+
+            &-1 {
+                background-image: linear-gradient(
+                    to right bottom,
+                    rgba($colour-card1-light, 1),
+                    rgba($colour-card1-dark, 1)
+                );
+            }
+
+            &-2 {
+                background-image: linear-gradient(
+                    to right bottom,
+                    rgba($colour-card2-light, 1),
+                    rgba($colour-card2-dark, 1)
+                );
+            }
+
+            &-3 {
+                background-image: linear-gradient(
+                    to right bottom,
+                    rgba($colour-card3-light, 1),
+                    rgba($colour-card3-dark, 1)
+                );
+            }
+        }
+    }
+
+    // Hover the card and the side transforms
+    &:hover &__side--front {
+        transform: rotateY(-180deg);
+    }
+
+    &:hover &__side--back {
+        transform: rotateY(0);
+    }
+
+    // FRONT SIDE STYLING
     &__picture {
         height: 23rem;
+        background-size: cover;
+        border-top-left-radius: .3rem;
+        border-top-right-radius: .3rem;
+
+        //IE 9 and down - apply background-blend-mode equivalent
+        -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=80)';
+        // IE 10 and 11 - apply background-blend-mode equivalent
+        @media screen and (-ms-high-contrast: active),
+            (-ms-high-contrast: none) {
+            opacity: 0.8;
+        }
         background-blend-mode: screen;
-        background-size:cover;
 
-        -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
-                clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
-
-        border-top-left-radius: 3px;
-        border-top-right-radius: 3px;
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 
         &--1 {
-            background: linear-gradient(
+            background-image: linear-gradient(
                     to right bottom,
-                    rgba($colour-orange-light, 0.8),
-                    rgba($colour-orange-dark, 0.8)
+                    rgba($colour-card1-light, 1),
+                    rgba($colour-card1-dark, 1)
                 ),
                 url('../_images/nat-5.jpg');
-         }
+        }
+
+        &--2 {
+            background-image: linear-gradient(
+                    to right bottom,
+                    rgba($colour-card2-light, 1),
+                    rgba($colour-card2-dark, 1)
+                ),
+                url('../_images/nat-6.jpg');
+        }
+
+        &--3 {
+            background-image: linear-gradient(
+                    to right bottom,
+                    rgba($colour-card3-light, 1),
+                    rgba($colour-card3-dark, 1)
+                ),
+                url('../_images/nat-7.jpg');
+        }
     }
 
     &__heading {
-        font-size: 2rem;
-        color: $colour-white;
+        position: absolute;
+        top: 12rem;
+        right: 2rem;
+        text-align: right;
+        font-size: 2.8rem;
+        font-weight: 300;
         text-transform: uppercase;
+        color: $colour-white;
+    }
 
-        span {
-            display: inline-block;
-            padding: 1rem;
-            font-weight: 350;
-            background: linear-gradient(
-                    to right bottom,
-                    rgba($colour-orange-light, 0.8),
-                    rgba($colour-orange-dark, 0.8)
-                ),
+    &__heading-span {
+        float: right;
+        clear: right;
+        padding: 0.5rem 1.5rem;
+
+        &:last-child {
+            margin-top: -.5rem;
         }
 
-        &--span1 {
-            position: absolute;
-            right: .5rem;
-            bottom: 2rem;
+        &--1 {
+            background-image: linear-gradient(
+                to right bottom,
+                rgba($colour-card1-light, 0.85),
+                rgba($colour-card1-dark, 0.85)
+            );
+        }
+
+        &--2 {
+            background-image: linear-gradient(
+                to right bottom,
+                rgba($colour-card2-light, 0.85),
+                rgba($colour-card2-dark, 0.85)
+            );
+        }
+
+        &--3 {
+            background-image: linear-gradient(
+                to right bottom,
+                rgba($colour-card3-light, 0.85),
+                rgba($colour-card3-dark, 0.85)
+            );
         }
     }
-    
-    
 
-    &:hover {
-        transform: rotateY(180deg);
-        box-shadow: 0 2rem 5rem rgba($colour-black, 0.15);
+    &__details {
+        ul {
+            list-style: none;
+            width: 80%;
+            margin: 3rem auto;
+        }
+
+        li {
+            font-size: 1.5rem;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        li:not(:last-child) {
+            border-bottom: 1px solid rgba($colour-black, 0.05);
+        }
+    }
+
+    // BACK SIDE STYLING
+    &__cta {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        text-align: center;
+    }
+
+    &__price-box {
+        color: $colour-white;
+        margin-bottom: 8rem;
+    }
+
+    &__price-only {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+    }
+
+    &__price-value {
+        font-size: 6rem;
+        font-weight: 100;
     }
 }
