@@ -1,41 +1,27 @@
 .btn {
-    // Style
-    @include style-button;
-
-    &--white {
-        background-color: $colour-white;
-        @include style-link-text($colour-text);
-
-        &::after {
-            background-color: $colour-white;
-        }
-    }
-
-    &--green {
-        background-color: $colour-primary;
-        @include style-link-text($colour-white);
-
-        &::after {
-            background-color: $colour-primary;
-        }
-    }
 
     // States
+    &, //this means just .btn
     &:link,
     &:visited {
-        transition: all 0.2s;
+
+        @include style-button;
+        
+        transition: all .2s;
         position: relative; /*set so .btn::after absolute positioning works*/
     }
 
     &:hover {
         transform: translateY(-0.3rem);
-        box-shadow: 0 1rem 2rem rgba($colour-black, 0.2);
+        box-shadow: 0 1rem 2rem rgba($colour-black, .2);
     }
-    &:active {
+    &:active,
+    &:focus {
+        outline: none;
         transform: translateY(-1px);
         /*this is in relation to the original state. This means -1px will effectively move the link down 2px as the hover state will have moved it up 3px*/
 
-        box-shadow: 0 0.5rem 1rem rgba($colour-black, 0.4);
+        box-shadow: 0 0.5rem 1rem rgba($colour-black, .4);
     }
 
     // Button background effect
@@ -47,7 +33,7 @@
         display: inline-block;
         height: 100%;
         width: 100%;
-        border-radius: 10rem;
+        border-radius: $border-radius-big;
         position: absolute;
         top: 0;
         left: 0;
@@ -58,6 +44,25 @@
     &:hover::after {
         transform: scaleX(1.4) scaleY(1.6);
         opacity: 0;
+    }
+
+    // Button Colours
+    &--white {
+        background-color: $colour-white;
+        color: $colour-text;
+
+        &::after {
+            background-color: $colour-white;
+        }
+    }
+
+    &--green {
+        background-color: $colour-primary;
+        color: $colour-white;
+
+        &::after {
+            background-color: $colour-primary;
+        }
     }
 
     // Animation
@@ -74,7 +79,7 @@
 .btn-text {
     &:link,
     &:visited {
-        font-size: $default-font-size;
+        font-size: $font-size-default;
         color: $colour-primary;
         font-weight: 700;
         display: inline-block;

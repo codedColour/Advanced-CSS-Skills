@@ -1,7 +1,7 @@
  .feature-box {
         text-align: center;
         padding: 2.5rem;
-        border-radius: 3px;
+        border-radius: $border-radius-small;
         background-color: rgba($colour-white, 0.85);
         box-shadow: 0 1.5rem 3rem rgba($colour-black,.2);
         transition: all .3s;
@@ -14,7 +14,7 @@
         }
 
         &__text {
-            font-size: 1.5rem;
+            font-size: $font-size-default;
         }
 
         &:hover {

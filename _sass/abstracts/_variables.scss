@@ -9,6 +9,8 @@ $colour-black: #000; //black
 
 $colour-grey-light-1: #f7f7f7;
 
+$colour-grey-dark-1: #999; 
+
 // Card colours
 $colour-card1-light: #ffb900;
 $colour-card1-dark: #ff7730;
@@ -22,11 +24,20 @@ $colour-card3-dark: #5643fa;
 $colour-test: red; // red colour to test things out
 
 // FONT
-$default-font-size: 1.6rem;
+$font-size-smallest: 1.2rem;
+$font-size-small: 1.5rem;
+$font-size-default: 1.6rem;
+$font-size-big: 2rem;
+$font-size-biggest: 2.5rem;
 
 // GRID
 $grid-width: 114rem;
 $gutter-vertical: 8rem;
 $gutter-horizontal: 6rem;
+
+//
+$border-radius-smallest: .2rem;
+$border-radius-small: .3rem;
+$border-radius-big: 10rem;
 
 

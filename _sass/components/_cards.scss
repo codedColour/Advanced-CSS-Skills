@@ -1,7 +1,7 @@
 // FUNCTIONALITY
 .card {
     position: relative;
-    perspective: 150rem;
+    perspective: 500rem;
     height: 52rem;
 
     &__side {
@@ -9,9 +9,9 @@
         top: 0;
         left: 0;
         width: 100%;
-        font-size: 2rem;
+        font-size: $font-size-big;
         height: 52rem;
-        border-radius: 0.3rem;
+        border-radius: $border-radius-smallest;
         overflow: hidden;
         box-shadow: 0 1.5rem 4rem rgba($colour-black, 0.15);
         transition: all 0.8s ease;
@@ -64,8 +64,8 @@
     &__picture {
         height: 23rem;
         background-size: cover;
-        border-top-left-radius: .3rem;
-        border-top-right-radius: .3rem;
+        border-top-left-radius: $border-radius-small;
+        border-top-right-radius: $border-radius-small;
 
         //IE 9 and down - apply background-blend-mode equivalent
         -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=80)';
@@ -160,7 +160,7 @@
         }
 
         li {
-            font-size: 1.5rem;
+            font-size: $font-size-default;
             padding: 1rem;
             text-align: center;
         }

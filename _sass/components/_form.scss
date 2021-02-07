@@ -1,0 +1,101 @@
+.form {
+    &__group:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+
+    &__input {
+        // Browsers render their own font family and colour for input fields so you have to specify inherit to get them to adopt the default font and colour set in the body element.
+        font-family: inherit;
+        font-size: $font-size-small;
+        color: inherit;
+        display: block;
+        width: 90%;
+        padding: 1.5rem 2rem;
+        border-radius: $border-radius-smallest;
+        background-color: rgba($colour-white, 0.5);
+        border: none;
+        border-bottom: 3px solid transparent;
+        transition: all .3s;
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 1rem 2rem rgba($colour-black, 0.1);
+            border-bottom: 0.3rem solid $colour-primary;
+
+            &:invalid {
+                border-bottom: .3rem solid $colour-card1-dark;
+            }
+        }
+
+        // :: is used for a pseudo element as opposed to a pseudo class which uses one :
+        &::-webkit-input-placeholder {
+            color: $colour-grey-dark-1;
+        }        
+    }
+
+    &__label {
+        display: block;
+        font-size: $font-size-smallest;
+        font-weight: 700;
+        margin-left: 2rem; // same as input left padding
+        margin-top: .7rem;
+        transition: all .3s;
+    }
+
+    // to get the label to appear only when text is inputted into the input field we use the placeholder-shown pseudo-class. However it's the label we want to style and this is a sibling of input (not it';s child). We therefore use the + sign which means the adjacent following sibling. If there are siblings between the one you want to target then use the ~ general sibling selector.
+    // placeholder-shown is visible when the input field is blank
+    &__input:placeholder-shown + &__label {
+        opacity: 0; // use this so we can animate it
+        visibility: hidden; // use this as setting opacity to zero only makes an element invisible; it still appears on the page tasking up space
+        transform: translateY(-4rem);
+    }
+
+    &__radio-group {        
+        display: inline-block;
+        width: 49%;
+        padding-left: 2.3rem;
+    }
+
+    &__radio-input {
+        display: none;
+    }
+
+    &__radio-label {
+        position: relative;
+        font-size: $font-size-default;
+        padding-left: 3rem;
+        cursor: pointer;
+    }
+
+    &__radio-button {
+        display: inline-block;
+        position: absolute;
+        top: -.5rem;
+        left: -2.3rem;
+        height: 3rem;
+        width: 3rem;
+        border: 5px solid $colour-primary;
+        border-radius: 50%;
+
+
+        &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            height: 1.2rem;
+            width: 1.2rem;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: $colour-primary;
+            opacity: 0;
+        }
+    }
+
+    // When the radio input is selected we want the centre dot of our custom radio button to display. This requires us to style the radio__button::after opacity and to get to that from the form__radio-input we need to select the direct sibling selector (+) to get to form__radio-label and then go to the label child element (span or form__radio-button as we called it). 
+    &__radio-input:checked + &__radio-label &__radio-button::after {
+        opacity: 1;
+    }
+    
+}

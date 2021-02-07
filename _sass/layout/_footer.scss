@@ -1,0 +1,72 @@
+.footer {
+
+    font-size: $font-size-big;
+
+    &__attribution {
+        -webkit-font-smoothing: antialiased;
+    }
+
+    &__attribution > a > img,
+    &__attribution > a > span {
+        display: inline-block;
+    }
+
+    &__attribution .cc-author {
+        font-size: $font-size-biggest;
+        font-weight: 700;
+        font-style: italic;
+        margin-right: .3rem;
+        margin-left: .3rem;
+
+        color: red;
+	background-image: -webkit-linear-gradient(92deg,red,yellow);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-webkit-animation: hue 10s infinite linear;     
+    }  
+
+    @-webkit-keyframes hue {
+        from {
+          -webkit-filter: hue-rotate(0deg);
+        }
+      
+        to {
+          -webkit-filter: hue-rotate(-360deg);
+        }
+      }
+      
+
+
+
+
+
+
+
+
+    
+    &__attribution a {
+        text-decoration: none;
+        margin: 0 .3rem;
+        background-image: -webkit-linear-gradient(92deg, #ffcc00, #f05408);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-webkit-animation: coloured 10s infinite linear;
+    }
+
+    &__attribution a .cc-logo {
+        height: 2rem;
+        background-image: -webkit-linear-gradient(92deg, #ffcc00, #f05408);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-webkit-animation: coloured 10s infinite linear;
+    }
+}
+
+@-webkit-keyframes hue {
+    from {
+        -webkit-filter: hue-rotate(0deg);
+    }
+    to {
+        -webkit-filter: hue-rotate(-360deg);
+    }
+  }
