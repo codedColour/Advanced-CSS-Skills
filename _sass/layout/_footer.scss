@@ -1,72 +1,91 @@
+/*****   FOOTER LAYOUT   *****/
+
 .footer {
+    background-image: url(../_images/carbon-fibre-patterns.jpg);
+    padding: 13rem 0;
+    font-size: $font-size-smaller;
 
-    font-size: $font-size-big;
-
-    &__attribution {
-        -webkit-font-smoothing: antialiased;
+    &__logo-box {
+        margin-bottom: 8rem;
     }
 
-    &__attribution > a > img,
-    &__attribution > a > span {
+    &__logo {
+        width: 15rem;
+        height: auto;
+    }
+
+    &__navigation {
         display: inline-block;
+        line-height: 3rem;
+        padding-top: 2.5rem;
+        border-top: 1px solid rgba($colour-grey-dark-1, .6); 
+    }
+                
+    &__list {
+        list-style-type: none;
     }
 
-    &__attribution .cc-author {
-        font-size: $font-size-biggest;
-        font-weight: 700;
-        font-style: italic;
-        margin-right: .3rem;
-        margin-left: .3rem;
+    &__item {
+        display: inline-block;        
 
-        color: red;
-	background-image: -webkit-linear-gradient(92deg,red,yellow);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	-webkit-animation: hue 10s infinite linear;     
-    }  
+        &:not(:last-child) {
+            margin-right: 1.5rem;
+        }           
+    }
 
-    @-webkit-keyframes hue {
-        from {
-          -webkit-filter: hue-rotate(0deg);
+    &__link {
+
+        &:link,
+        &:visited {
+            display: inline-block;
+            color: $colour-grey-light-1;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all .2s;
         }
-      
-        to {
-          -webkit-filter: hue-rotate(-360deg);
+
+        &:hover,
+        &:active {
+            color: $colour-primary;
+            box-shadow: 0 1rem 2rem rgba($colour-black, .4);
+            transform: scale(1.1);
+        }       
+    }
+
+    &__copyright { 
+        display: inline-block;
+        width: 80%;
+        float: right;
+        padding-top: 1.5rem;
+        border-top: 1px solid rgba($colour-grey-dark-1, .6);
+        
+
+        &--paragraph {
+            display: inline-block;
+            font-weight: 300;
+            line-height: 2.5rem;
+            color: $colour-grey-light-1;       
         }
-      }
-      
 
+        &--cc-link {
 
+            &:link,
+            &:visited {
+                text-decoration: none;
+                margin-right: .4rem;
+                margin-left: .4rem;
+            }
 
+            &:hover,
+            &:active {
+                color: khaki !important;
+                transform: scale(1.1);
+                text-decoration: underline;
+            } 
+        }
 
-
-
-
-
-    
-    &__attribution a {
-        text-decoration: none;
-        margin: 0 .3rem;
-        background-image: -webkit-linear-gradient(92deg, #ffcc00, #f05408);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	-webkit-animation: coloured 10s infinite linear;
-    }
-
-    &__attribution a .cc-logo {
-        height: 2rem;
-        background-image: -webkit-linear-gradient(92deg, #ffcc00, #f05408);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	-webkit-animation: coloured 10s infinite linear;
-    }
+        &--cc-logo {
+            height: 2.5rem;
+        }
+    }    
 }
-
-@-webkit-keyframes hue {
-    from {
-        -webkit-filter: hue-rotate(0deg);
-    }
-    to {
-        -webkit-filter: hue-rotate(-360deg);
-    }
-  }

@@ -1,3 +1,5 @@
+/*****   FORMS   *****/
+
 .form {
     &__group:not(:last-child) {
         margin-bottom: 2rem;
@@ -81,15 +83,13 @@
         &::after {
             content: "";
             display: block;
-            position: absolute;
             height: 1.2rem;
             width: 1.2rem;
             border-radius: 50%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
             background-color: $colour-primary;
             opacity: 0;
+
+            @include centred;
         }
     }
 

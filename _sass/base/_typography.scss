@@ -1,3 +1,5 @@
+/*****   TYPOGRAPHY   *****/
+
 body {
     font-family: 'Lato', sans-serif;
     font-weight: 400;
@@ -48,11 +50,11 @@ body {
     
     @include gradient-text-overlay;
 
-    transition: all .2s;
+    transition: all .3s;
 
     &:hover {
-        transform: skewY(2deg) skewX(5deg) scale(1.1);
-        text-shadow: 0.5rem 1rem 2rem rgba($colour-black, 0.2);
+        transform: scale(1.05);
+        text-shadow: .6rem .6rem .6rem rgba($colour-text, .2);
     }
 }
 

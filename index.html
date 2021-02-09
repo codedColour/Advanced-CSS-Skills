@@ -211,6 +211,39 @@
     </head>
 
     <body>
+        <div class="navigation">
+            <input
+                type="checkbox"
+                class="navigation__checkbox"
+                id="navi-toggle"
+            />
+            <label for="navi-toggle" class="navigation__button">
+                <span class="navigation__icon"></span>
+            </label>
+
+            <div class="navigation__background">&nbsp;</div>
+
+            <nav class="navigation__nav">
+                <ul class="navigation__list">
+                    <li class="navigation__item">
+                        <a href="#" class="navigation__link"><span>01</span></span>About Natours</a>
+                    </li>
+                    <li class="navigation__item">
+                        <a href="#" class="navigation__link"><span>02</span></span>Your Benefits</a>
+                    </li>
+                    <li class="navigation__item">
+                        <a href="#" class="navigation__link"><span>03</span></span>Popular Tours</a>
+                    </li>
+                    <li class="navigation__item">
+                        <a href="#" class="navigation__link"><span>04</span></span>Stories</a>
+                    </li>
+                    <li class="navigation__item">
+                        <a href="#" class="navigation__link"><span>05</span></span>Book Now</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
         <header class="header">
             <div class="header__logo-box">
                 <img
@@ -664,101 +697,76 @@
         </main>
 
         <footer class="footer">
-            <div class="row">
-                <div class="footer__logo-box u-centre-text">
-                    <img src="../_images/logo-green-2x.png " alt="Company Logo" class="footer__logo">
-                </div>
+            <div class="footer__logo-box u-centre-text">
+                <img
+                    src="../_images/logo-green-2x.png "
+                    alt="Company Logo"
+                    class="footer__logo"
+                />
             </div>
 
             <div class="row">
                 <div class="col-1-of-2">
-                    <nav class="__footer__nav">
-                        <ul>
-                            <li>Company</li>
-                            <li>Contact Us</li>
-                            <li>Careers</li>
-                            <li>Privacy Policy</li>
-                            <li>Terms</li>
+                    <div class="footer__navigation">
+                        <ul class="footer__list">
+                            <li class="footer__item">
+                                <a href="#" class="footer__link"> Company </a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="#" class="footer__link">
+                                    Contact Us
+                                </a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="#" class="footer__link"> Careers </a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="#" class="footer__link">
+                                    Privacy Policy
+                                </a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="#" class="footer__link"> Terms </a>
+                            </li>
                         </ul>
-                    </nav>
+                    </div>
                 </div>
                 <div class="col-1-of-2">
-                    <div class="footer__attribution">
-                        <span>Built by</span>
-                        <span class="cc-author">Goronwy Roberts</span> 
-                        <span>of</span>
-                        <a href="#" class="cc-logo-link">
-                            <img class="cc-logo" src="../_images/cc-logo.png" alt="codedColour company logo">
-                            <span>codedColour</span>                        
-                        </a>   
-                        <span>following the online course by Jonas Schmedtmann entitled Advanced CSS and Sass</span>  
-                    </div>                   
+                    <div class="footer__copyright">
+                        <p class="footer__copyright--paragraph">
+                            Built by
+                            <span class="footer__copyright--cc-author">
+                                <a href="#" class="footer__copyright--cc-link"
+                                    >Goronwy Roberts</a
+                                ></span
+                            >
+                            of
+                            <a href="#" class="footer__copyright--cc-link">
+                                <img
+                                    class="footer__copyright--cc-logo"
+                                    src="../_images/cc-logo.png"
+                                    alt="codedColour company logo"
+                                />
+                                <span>codedColour</span>
+                            </a>
+                        </p>
+                        <p class="footer__copyright--paragraph">
+                            following the online course by
+                        </p>
+                        <p class="footer__copyright--paragraph">
+                            <a href="#" class="footer__copyright--jonas-link"
+                                >Jonas Schmedtmann</a
+                            >
+                        </p>
+                        <p class="footer__copyright--paragraph">entitled</p>
+                        <p class="footer__copyright--paragraph">
+                            <a href="#" class="footer__copyright--jonas-link"
+                                >Advanced CSS and Sass</a
+                            >
+                        </p>
+                    </div>
                 </div>
             </div>
         </footer>
-
-        <!--
-        <section class="grid-test">
-            <div class="row">
-                <div class="col-1-of-2">
-                    <p>Col 1 of 2</p>
-                </div>
-                <div class="col-1-of-2">
-                    <p>Col 1 of 2</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-1-of-3">
-                    <p>Col 1 of 3</p>
-                </div>
-                <div class="col-1-of-3">
-                    <p>Col 1 of 3</p>
-                </div>
-                <div class="col-1-of-3">
-                    <p>Col 1 of 3</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-1-of-3">
-                    <p>Col 1 of 3</p>
-                </div>
-                <div class="col-2-of-3">
-                    <p>Col 2 of 3</p>
-                </div>
-            </div>
-            <div class="row">                
-                <div class="col-1-of-4">
-                    <p>Col 1 of 4</p>
-                </div>
-                <div class="col-1-of-4">
-                    <p>Col 1 of 4</p>
-                </div>
-                <div class="col-1-of-4">
-                    <p>Col 1 of 4</p>
-                </div>
-                <div class="col-1-of-4">
-                    <p>Col 1 of 4</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-1-of-4">
-                    <p>Col 1 of 4</p>
-                </div>
-                <div class="col-1-of-4">
-                    <p>Col 1 of 4</p>
-                </div>
-                <div class="col-2-of-4">
-                    <p>Col 2 of 4</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-1-of-4">
-                    <p>Col 1 of 4</p>
-                </div>
-                <div class="col-3-of-4">
-                    <p>Col 3 of 4</p>
-                </div>
-            </div>
-        </section>
-    --></body>
+    </body>
 </html>

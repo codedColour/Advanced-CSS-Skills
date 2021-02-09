@@ -1,3 +1,5 @@
+/*****   FLUID GRID LAYOUT   *****/
+
 .row {
     max-width: $grid-width;
     margin: 0 auto;
@@ -36,3 +38,71 @@
         width: calc(3 * ((100% - (3 * #{$gutter-horizontal})) / 4) + (2 * #{$gutter-horizontal}));
     }    
 }
+
+
+
+// This is the HTML
+
+// <section class="grid-test">
+//     <div class="row">
+//         <div class="col-1-of-2">
+//             <p>Col 1 of 2</p>
+//         </div>
+//         <div class="col-1-of-2">
+//             <p>Col 1 of 2</p>
+//         </div>
+//     </div>
+//     <div class="row">
+//         <div class="col-1-of-3">
+//             <p>Col 1 of 3</p>
+//         </div>
+//         <div class="col-1-of-3">
+//             <p>Col 1 of 3</p>
+//         </div>
+//         <div class="col-1-of-3">
+//             <p>Col 1 of 3</p>
+//         </div>
+//     </div>
+//     <div class="row">
+//         <div class="col-1-of-3">
+//             <p>Col 1 of 3</p>
+//         </div>
+//         <div class="col-2-of-3">
+//             <p>Col 2 of 3</p>
+//         </div>
+//     </div>
+//     <div class="row">                
+//         <div class="col-1-of-4">
+//             <p>Col 1 of 4</p>
+//         </div>
+//         <div class="col-1-of-4">
+//             <p>Col 1 of 4</p>
+//         </div>
+//         <div class="col-1-of-4">
+//             <p>Col 1 of 4</p>
+//         </div>
+//         <div class="col-1-of-4">
+//             <p>Col 1 of 4</p>
+//         </div>
+//     </div>
+//     <div class="row">
+//         <div class="col-1-of-4">
+//             <p>Col 1 of 4</p>
+//         </div>
+//         <div class="col-1-of-4">
+//             <p>Col 1 of 4</p>
+//         </div>
+//         <div class="col-2-of-4">
+//             <p>Col 2 of 4</p>
+//         </div>
+//     </div>
+//     <div class="row">
+//         <div class="col-1-of-4">
+//             <p>Col 1 of 4</p>
+//         </div>
+//         <div class="col-3-of-4">
+//             <p>Col 3 of 4</p>
+//         </div>
+//     </div>
+// </section>
+

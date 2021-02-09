@@ -1,0 +1,78 @@
+/*****   HUE ANIMATION EFFECT   *****/
+
+.footer {
+
+    &__copyright {
+
+        &--cc-author,
+        &--cc-link {
+            color: $colour-card1-dark;
+            background-image: -webkit-linear-gradient(184deg, #ffcc00, #f05408);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -webkit-animation: hue 10s infinite linear;
+                    animation: hue 10s infinite linear;
+        }
+    }
+}
+
+@-webkit-keyframes hue {
+    from {
+        -webkit-filter: hue-rotate(0deg);
+    }
+
+    to {
+        -webkit-filter: hue-rotate(-360deg);
+    }
+}
+
+@keyframes hue {
+    from {
+        -webkit-filter: hue-rotate(0deg);
+                filter: hue-rotate(0deg);
+    }
+
+    to {
+        -webkit-filter: hue-rotate(-360deg);
+                filter: hue-rotate(-360deg);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// This is the HTML
+
+// <footer class="footer">
+//     <div class="row">
+//         <div class="col-1-of-2">
+//             <div class="footer__attribution">
+//                 <span>Built by</span>
+//                 <span class="cc-author">Goronwy Roberts</span> 
+//                 <span>of</span>
+//                 <a href="#" class="cc-logo-link">
+//                     <img class="cc-logo" src="../_images/cc-logo.png" alt="codedColour company logo">
+//                     <span>codedColour</span>                        
+//                 </a>   
+//                 <span>following the online course by Jonas Schmedtmann entitled Advanced CSS and Sass</span>  
+//             </div>                   
+//         </div>
+//     </div>
+// </footer>
