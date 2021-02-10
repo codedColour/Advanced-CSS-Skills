@@ -1,0 +1,107 @@
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba($colour-black, .8);
+    z-index: 1004;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s;
+
+    @supports ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        background-color: rgba($colour-black, .3);
+    }
+
+    
+
+    &__content {
+        @include centred;
+
+        display: table;
+        width: 75%;
+        background-color: $colour-white;
+        box-shadow: 0 2rem 4rem rgba($colour-black, .2);
+        border-radius: .3rem;
+        overflow: hidden; //stops images overlapping the border-radius
+        z-index: 1005;
+        opacity: 0;
+
+        // you can only have one transform on an element and we;ve used ours for the centering (see mixin). The only way to get round this is to duplicate the values and then add the bit that we want in addition as the last specified transform will be the one applied.
+        transform: translate(-50%, -50%) scale(.25);
+        transition: all .5s .2s;
+    }
+
+    &__left {
+        display: table-cell;
+        width: 33.333333333%;
+        vertical-align: middle;
+    }
+
+    &__image {
+        display: block;
+        width: 100%;
+    }
+
+    &__right {
+        display: table-cell;
+        width: 66.666666667%;
+        vertical-align: middle;
+        padding: 3rem 5rem;
+
+    }
+
+    &__text {
+        font-size: $font-size-smaller;
+        margin-bottom: 4rem;
+        -moz-column-count: 2;
+             column-count: 2;
+        -moz-column-gap: 4rem;
+             column-gap: 4rem;
+        -moz-column-rule: 1px solid $colour-grey-light-2;
+             column-rule: 1px solid $colour-grey-light-2;
+
+        -webkit-hyphens:auto;
+            -ms-hyphens:auto;
+                hyphens:auto;
+    }
+
+    // OPEN STATES
+
+    &:target { // click on the buttons on the cards and the target becomes #popup opening the popup
+        opacity: 100;
+        visibility: visible;  
+    }   
+
+    &:target &__content {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    &__close {
+
+        &:link,
+        &:visited {
+            display: inline-block;
+            position: absolute;
+            top: 2.5rem;
+            right: 2.5rem;
+            font-size: $font-size-biggest;
+            line-height: 1; //set to effectively make the character square for better positioning
+            color: $colour-text;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all .2s;
+        }
+
+        &:hover,
+        &:active {
+            transform: rotate(180deg);
+            color: $colour-primary;
+            font-weight: 900;
+        }
+    }
+}
