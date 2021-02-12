@@ -1,46 +1,54 @@
-var File = function (url, object) {
-  File.list = Array.isArray(File.list) ? File.list : [];
-  File.progress = File.progress || 0;
-  this.progress = 0;
-  this.object = object;
-  this.url = url;
-};
+// Back To Top Button Functionality
 
-File.indexOf = function (term) {
-  for (const index in File.list) {
-    const file = File.list[index];
-    if (file.equals(term) || file.url === term || file.object === term) {
-      return index;
+var backToTopButton = document.querySelector('.btn-scroll-to-top');
+
+window.addEventListener('scroll', makeVisible);
+
+function makeVisible() {
+    if (window.pageYOffset > 2500) {
+        if (!backToTopButton.classList.contains('btnEntrance')) {
+            backToTopButton.classList.remove('btnExit');
+            backToTopButton.classList.add('btnEntrance');
+            backToTopButton.style.display = 'block';
+        }
+    } else {
+        if (backToTopButton.classList.contains('btnEntrance')) {
+            backToTopButton.classList.remove('btnEntrance');
+            backToTopButton.classList.add('btnExit');
+
+            setTimeout(function() {
+              backToTopButton.style.display = 'none';
+            }, 250);            
+        }
     }
+}
+
+backToTopButton.addEventListener('click', smoothScrollBackToTop);
+
+
+// Smooth scrolling effect
+function smoothScrollBackToTop() {
+  const targetPosition = 0;
+  const startPosition = window.pageYOffset;
+  const distance = targetPosition - startPosition;
+  const duration = 750;
+  let start = null;
+
+  window.requestAnimationFrame(step);
+
+  function step(timestamp) {
+
+    if (!start) start = timestamp;
+    const progress = timestamp - start;
+    window.scrollTo(0, easeInOutCubic(progress, startPosition, distance, duration));
+    if (progress < duration) window.requestAnimationFrame(step);
   }
-  return -1;
-};
+}
 
-File.find = function (term) {
-  const index = File.indexOf(term);
-  return ~index && File.list[index];
-};
+function easeInOutCubic(t, b, c, d) {
 
-File.prototype.equals = function (file) {
-  const isFileType = file instanceof File;
-  return isFileType && this.url === file.url && this.object === file.object;
-};
-
-File.prototype.save = function (update) {
-  update = typeof update === 'undefined' ? true : update;
-  if (Array.isArray(File.list)) {
-    const index = File.indexOf(this);
-    if (~index && update) {
-      File.list[index] = this;
-      console.warn(
-        'File `%s` has been loaded before and updated now for: %O.',
-        this.url,
-        this,
-      );
-    } else File.list.push(this);
-    console.log(File.list);
-  } else {
-    File.list = [this];
-  }
-  return this;
+  t /= d/2;
+  if (t < 1) return c/2*t*t*t + b;
+  t -= 2;
+  return c/2*(t*t*t + 2) + b;
 };

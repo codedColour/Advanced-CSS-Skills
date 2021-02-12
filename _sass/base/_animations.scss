@@ -73,3 +73,45 @@
                 transform: translate(0);
             }
         }
+
+// Zoom In
+@-webkit-keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale3d(.3, .3, .3);    
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale3d(.3, .3, .3);    
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+// Zoom Out
+@-webkit-keyframes zoomOut {
+    from {
+        opacity: 1;           
+    }
+    to {
+        opacity: 0;
+        transform: scale3d(.3, .3, .3); 
+    }
+}
+
+@keyframes zoomOut {
+    from {
+        opacity: 1;           
+    }
+    to {
+        opacity: 0;
+        transform: scale3d(.3, .3, .3); 
+    }
+}
+
