@@ -6,8 +6,19 @@
     
     &:not(:last-child) {
         margin-bottom: $gutter-vertical;
+
+        // remove the vertical gutter between rows
+        @include respond(tab-port) {
+            margin-bottom: $gutter-vertical-respond;
+        }
     }
 
+    @include respond(tab-port) {
+        // reduce the width of the grid to accommodate the stacking of the 100% wide columns
+        max-width: $grid-width-respond;
+        padding: 0 3rem;
+    }
+    
     @include clearfix;
 
     // Selects all the elements with an attribute of class which begins with col-
@@ -16,7 +27,19 @@
 
         &:not(:last-child) {
             margin-right: $gutter-horizontal;
+
+            // remove the horizontal gutter for the 100% wide columns
+            // instead add a gutter below the 100% wide columns
+            @include respond(tab-port) {
+                margin-right: 0;
+                margin-bottom: $gutter-vertical-respond;
+            }
         } 
+
+        // make the columns 100% wide so they effectively become rows
+        @include respond(tab-port) {
+            width: 100% !important;
+        }
     }
 
     .col-1-of-2 {

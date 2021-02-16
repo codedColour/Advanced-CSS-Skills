@@ -4,10 +4,35 @@
     position: relative;
     height: 95vh;
 
-    @include gradient-image-overlay('../_images/hero.jpg');
+    @include gradient-image-overlay('../_images/hero-small.jpg');
 
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
             clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+    // Responsive background image. Default loads the small image (see line 7). 
+    // But for displays with a pixel density of 2 AND a screen size above 600px (37.5em - i.e. a mobile) the bigger image is loaded).   
+    // And the second one (starting on line 20 serves the bigger image on single density screens as soon as the viewport size exceeds the smaller image size (1200px or 75em)
+    @media 
+        (-webkit-min-device-pixel-ratio: 2) and 
+        (min-width: 37.5em), 
+        (min-resolution: 192dpi) and 
+        (min-width: 37.5em), 
+        (-webkit-max-device-pixel-ratio: 1.9895833333333333) and 
+        (min-width: 75em), 
+        (max-resolution: 191dpi) and 
+        (min-width: 75em) {
+            @include gradient-image-overlay('../_images/hero.jpg');
+    }
+
+    @include respond(tab-port) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+                clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+    }
+
+    @include respond(phone) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+                clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    }
 
     &__logo-box {
         position: absolute;

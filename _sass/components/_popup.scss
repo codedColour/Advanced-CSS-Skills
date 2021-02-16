@@ -14,9 +14,11 @@
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
         background-color: rgba($colour-black, .3);
-    }
 
-    
+        // @include respond(phone) {
+        //     overflow: scroll;
+        // }
+    }    
 
     &__content {
         @include centred;
@@ -33,17 +35,52 @@
         // you can only have one transform on an element and we;ve used ours for the centering (see mixin). The only way to get round this is to duplicate the values and then add the bit that we want in addition as the last specified transform will be the one applied.
         transform: translate(-50%, -50%) scale(.25);
         transition: all .5s .2s;
+
+        @include respond(tab-land) {
+            display: block;
+            width: 80%;
+            text-align: center;
+        }
+
+        @include respond(phone) {
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: scroll;
+            // padding: 3rem 0;
+        }
     }
 
     &__left {
         display: table-cell;
         width: 33.333333333%;
         vertical-align: middle;
+
+        @include respond(tab-land) {
+            display: block;
+            width: 102%;   
+            margin-top: -10px;
+        }
+
+        @include respond(phone) {
+            display: none;
+        }
     }
 
     &__image {
         display: block;
         width: 100%;
+
+        @include respond(tab-land) {
+            display: inline-block;
+            width: 50%; 
+        }
+    }
+
+    &__image:not(:first-child) {
+
+        @include respond(tab-land) {
+            margin-left: -.2rem; // correct for space automatically created for inline-block elements
+        }
     }
 
     &__right {
@@ -52,6 +89,22 @@
         vertical-align: middle;
         padding: 3rem 5rem;
 
+        @include respond(tab-land) {
+            display: block;
+            width: 65%;
+            margin: 2rem auto;
+            padding: 3rem 5rem 5rem; 
+        }
+
+        @include respond(tab-port) {
+            width: 80%;
+            padding: 3rem 5rem 5rem; 
+        }
+
+        @include respond(phone) {
+            width: 100%;
+            padding: 4rem 3rem;            
+        }
     }
 
     &__text {
@@ -67,6 +120,12 @@
         -webkit-hyphens:auto;
             -ms-hyphens:auto;
                 hyphens:auto;
+
+        @include respond(tab-land) {
+            -moz-column-count: 1;
+                 column-count: 1; 
+                 font-size: $font-size-default;
+        }
     }
 
     // OPEN STATES

@@ -87,7 +87,24 @@
                     rgba($colour-card1-light, 1),
                     rgba($colour-card1-dark, 1)
                 ),
+                url('../_images/nat-5-small.jpg');
+
+            @media 
+                (-webkit-min-device-pixel-ratio: 2) and 
+                (min-width: 37.5em), 
+                (min-resolution: 192dpi) and 
+                (min-width: 37.5em), 
+                (-webkit-max-device-pixel-ratio: 2) and 
+                (min-width: 75em), 
+                (max-resolution: 192dpi) and 
+                (min-width: 75em) {
+                    background-image: linear-gradient(
+                    to right bottom,
+                    rgba($colour-card1-light, 1),
+                    rgba($colour-card1-dark, 1)
+                ),
                 url('../_images/nat-5.jpg');
+            }    
         }
 
         &--2 {
@@ -96,7 +113,24 @@
                     rgba($colour-card2-light, 1),
                     rgba($colour-card2-dark, 1)
                 ),
+                url('../_images/nat-6-small.jpg');
+
+            @media 
+                (-webkit-min-device-pixel-ratio: 2) and 
+                (min-width: 37.5em), 
+                (min-resolution: 192dpi) and 
+                (min-width: 37.5em), 
+                (-webkit-max-device-pixel-ratio: 2) and 
+                (min-width: 75em), 
+                (max-resolution: 192dpi) and 
+                (min-width: 75em) {
+                    background-image: linear-gradient(
+                    to right bottom,
+                    rgba($colour-card2-light, 1),
+                    rgba($colour-card2-dark, 1)
+                ),
                 url('../_images/nat-6.jpg');
+            } 
         }
 
         &--3 {
@@ -105,7 +139,24 @@
                     rgba($colour-card3-light, 1),
                     rgba($colour-card3-dark, 1)
                 ),
+                url('../_images/nat-7-small.jpg');
+
+            @media 
+                (-webkit-min-device-pixel-ratio: 2) and 
+                (min-width: 37.5em), 
+                (min-resolution: 192dpi) and 
+                (min-width: 37.5em), 
+                (-webkit-max-device-pixel-ratio: 2) and 
+                (min-width: 75em), 
+                (max-resolution: 192dpi) and 
+                (min-width: 75em) {
+                    background-image: linear-gradient(
+                    to right bottom,
+                    rgba($colour-card3-light, 1),
+                    rgba($colour-card3-dark, 1)
+                ),
                 url('../_images/nat-7.jpg');
+            } 
         }
     }
 
@@ -194,5 +245,104 @@
     &__price-value {
         font-size: 6rem;
         font-weight: 100;
+    }
+}
+
+// Responsive Design
+@include respond(tab-port) {
+    .card {
+        height: auto;
+        background-color: $colour-white;
+        box-shadow: 0 1.5rem 4rem rgba($colour-black, 0.15);
+        border-radius: 3px;
+        overflow: hidden;
+
+        &__side {
+            position: relative;
+            height: auto;
+            box-shadow: none;
+            border-radius: 0;
+
+            &--back {
+                transform: rotateY(0);
+            }
+        }
+
+        &:hover &__side--front {
+            transform: rotateY(0);
+        }
+
+        // FRONT SIDE STYLING
+        &__picture {
+            height: 37rem;
+        }
+
+        &__heading {
+            top: 23rem;
+            padding: .8rem 2rem;
+
+            &-span {
+                float: none;
+                background-image: none;
+                padding: 0;
+            }
+        }        
+
+        &__picture--1 ~ &__heading {
+            background-image: linear-gradient(
+                to right bottom,
+                rgba($colour-card1-light, 0.85),
+                rgba($colour-card1-dark, 0.85)
+            );
+        } 
+
+        &__picture--2 ~ &__heading {
+            background-image: linear-gradient(
+                to right bottom,
+                rgba($colour-card2-light, 0.85),
+                rgba($colour-card2-dark, 0.85)
+            );
+        } 
+
+
+        &__picture--3 ~ &__heading {
+            background-image: linear-gradient(
+                to right bottom,
+                rgba($colour-card3-light, 0.85),
+                rgba($colour-card3-dark, 0.85)
+            );
+        } 
+
+
+        &__details {
+
+            ul {
+                margin: 1.5rem auto;
+                }
+        }
+
+        // BACK SIDE STYLING
+        &__side--back {
+            -webkit-clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+                    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+        }
+
+        &__cta {
+            position: relative;
+            top: 0;
+            left: 0;
+            transform: translate(0);
+            width: 100%;
+            margin: 8rem 0 5rem;
+                    
+        }
+
+        &__price-box {
+            margin-bottom: 4rem;
+        }
+
+        &__price-value {
+            font-size: 5rem;
+        }
     }
 }

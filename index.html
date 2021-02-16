@@ -275,8 +275,6 @@
                     >Discover our tours</a
                 >
             </div>
-
-            <nav></nav>
         </header>
 
         <main>
@@ -310,20 +308,40 @@
                     </div>
                     <div class="col-1-of-2">
                         <div class="composition">
+
+<!-- See lecture 62 in the Udemy course Advanced CSS and Sass by Jonas Schmedtmann for full explanation                     -->
                             <img
-                                src="/_images/nat-1-large.jpg"
-                                alt="Photo 1"
-                                class="composition__photo composition__photo--p1"
+                                srcset= "/_images/nat-1.jpg 300w,
+                                         /_images/nat-1-large.jpg 1000w"
+                                sizes=  "(max-width: 75em) 22vw,
+                                         (max-width: 56.25em) 20vw,
+                                         (max-width: 37.5em) 30vw,
+                                         350px"
+                                alt=    "Photo 1"
+                                class=  "composition__photo           composition__photo--p1"
+                                src=    "/_images/nat-1-large.jpg"
                             />
                             <img
-                                src="/_images/nat-2-large.jpg"
-                                alt="Photo 2"
-                                class="composition__photo composition__photo--p2"
+                                srcset= "/_images/nat-2.jpg 300w,
+                                         /_images/nat-2-large.jpg 1000w"
+                                sizes=  "(max-width: 75em) 22vw,
+                                         (max-width: 56.25em) 20vw,
+                                         (max-width: 37.5em) 30vw,
+                                         350px"
+                                alt=    "Photo 2"
+                                class=  "composition__photo           composition__photo--p2"
+                                src=    "/_images/nat-2-large.jpg"
                             />
                             <img
-                                src="/_images/nat-3-large.jpg"
-                                alt="Photo 3"
-                                class="composition__photo composition__photo--p3"
+                                srcset= "/_images/nat-3.jpg 300w,
+                                         /_images/nat-3-large.jpg 1000w"
+                                sizes=  "(max-width: 75em) 22vw,
+                                         (max-width: 56.25em) 20vw,
+                                         (max-width: 37.5em) 30vw,
+                                         350px"
+                                alt=    "Photo 3"
+                                class=  "composition__photo           composition__photo--p3"
+                                src=    "/_images/nat-3-large.jpg"
                             />
                         </div>
                     </div>
@@ -556,9 +574,16 @@
                     <div class="story">
                         <figure class="story__shape">
                             <img
-                                class="story__image"
-                                src="../_images/nat-8.jpg"
-                                alt="Person on a tour"
+                                srcset= "/_images/nat-8.jpg 300w,
+                                         /_images/nat-8-medium.jpg 1000w,
+                                         /_images/nat-8-large.jpg 2000w,"
+                                sizes=  "(max-width: 75em) 16vw,
+                                         (max-width: 56.25em) 19vw,
+                                         (max-width: 37.5em) 36vw,
+                                         262px"
+                                alt=    "Person on a tour"
+                                class=  "story__image"
+                                src=    "/_images/nat-8-medium.jpg"
                             />
                             <figcaption class="story__caption">
                                 Mary Smith
@@ -584,9 +609,16 @@
                     <div class="story">
                         <figure class="story__shape">
                             <img
-                                class="story__image"
-                                src="../_images/nat-9.jpg"
-                                alt="Person on a tour"
+                                srcset= "/_images/nat-9.jpg 300w,
+                                         /_images/nat-9-medium.jpg 1000w,
+                                         /_images/nat-9-large.jpg 2000w,"
+                                sizes=  "(max-width: 75em) 16vw,
+                                         (max-width: 56.25em) 19vw,
+                                         (max-width: 37.5em) 36vw,
+                                         262px"
+                                alt=    "Person on a tour"
+                                class=  "story__image"
+                                src=    "/_images/nat-9-medium.jpg"
                             />
                             <figcaption class="story__caption">
                                 Jack Wilson
@@ -614,7 +646,7 @@
                 </div>
             </section>
 
-            <section class="section-book">
+            <section class="section-book"> 
                 <div class="row">
                     <div class="book">
                         <div class="book__form">
@@ -708,11 +740,19 @@
 
         <footer class="footer">
             <div class="footer__logo-box u-centre-text">
-                <img
-                    src="../_images/logo-green-2x.png "
-                    alt="Company Logo"
-                    class="footer__logo"
-                />
+                <picture class="footer__logo">
+                    <source 
+                        srcset="../_images/logo-green-small-1x.png 1x, 
+                                ../_images/logo-green-small-2x.png 2x"
+                        media=  "(max-width: 37.5em)"
+                    >
+                    <img
+                        srcset="../_images/logo-green-1x.png 1x, 
+                                ../_images/logo-green-2x.png 2x"
+                        alt=    "Company Logo"
+                        src=    "../_images/logo-green-2x.png"
+                    />
+                </picture>                
             </div>
 
             <div class="row">
@@ -783,8 +823,30 @@
             <div class="popup__content">
                 <a href="#section-tours .row" class="popup__close">&#x2716;</a>
                 <div class="popup__left">
-                    <img class="popup__image" src="../_images/nat-8.jpg" alt="Person on a tour"/>
-                    <img class="popup__image" src="../_images/nat-9.jpg" alt="Person on a tour"/>
+                    <img
+                        srcset= "/_images/nat-8.jpg 300w,
+                                 /_images/nat-8-medium.jpg 1000w,
+                                 /_images/nat-8-large.jpg 2000w,"
+                        sizes=  "(max-width: 75em) 16vw,
+                                 (max-width: 56.25em) 19vw,
+                                 (max-width: 37.5em) 36vw,
+                                 262px"
+                        alt=    "Person on a tour"
+                        class=  "popup__image"
+                        src=    "/_images/nat-8-medium.jpg"
+                    />
+                    <img
+                        srcset= "/_images/nat-9.jpg 300w,
+                                 /_images/nat-9-medium.jpg 1000w,
+                                 /_images/nat-9-large.jpg 2000w,"
+                        sizes=  "(max-width: 75em) 16vw,
+                                 (max-width: 56.25em) 19vw,
+                                 (max-width: 37.5em) 36vw,
+                                 262px"
+                        alt=    "Person on a tour"
+                        class=  "popup__image"
+                        src=    "/_images/nat-9-medium.jpg"
+                    />
                 </div>
                 <div class="popup__right">                    
                     <h2 class="heading-secondary u-margin-bottom-small">Start booking now</h2>

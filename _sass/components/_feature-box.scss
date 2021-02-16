@@ -8,11 +8,19 @@
         box-shadow: 0 1.5rem 3rem rgba($colour-black,.2);
         transition: all .3s;
 
+        @include respond(tab-port) {
+            padding: 2rem;
+        }
+
         &__icon {
             font-size: 6rem;
+            margin-bottom: .5rem;
 
             @include gradient-text-overlay;
-            
+
+            @include respond(tab-port) {
+                margin-bottom: 0;
+            }
         }
 
         &__text {

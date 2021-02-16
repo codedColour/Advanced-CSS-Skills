@@ -19,6 +19,10 @@
         border-bottom: 3px solid transparent;
         transition: all .3s;
 
+        @include respond(phone) {
+            width: 100%;
+        }
+
         &:focus {
             outline: none;
             box-shadow: 0 1rem 2rem rgba($colour-black, 0.1);
@@ -56,6 +60,15 @@
         display: inline-block;
         width: 49%;
         padding-left: 2.3rem;
+
+        @include respond(tab-port) {
+            margin-bottom: 1.5rem;
+        }
+
+        @include respond(phone) {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
     }
 
     &__radio-input {

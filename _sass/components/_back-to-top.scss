@@ -1,3 +1,4 @@
+/* Back To Top Button */
 .btn-scroll-to-top {
     position: fixed;
     bottom: 7rem;
@@ -16,6 +17,18 @@
     transition: all 0.2s ease-in-out;
 
     display: none;
+
+    @include respond(tab-port) {
+        background-color: $colour-text;
+        color: $colour-primary;
+        bottom: 4.5rem;
+        right: 4.5rem;
+    }
+
+    @include respond(phone) {
+        bottom: 3.5rem;
+        right: 3.5rem;
+    }
 
     &:hover {
         background-color: $colour-text;

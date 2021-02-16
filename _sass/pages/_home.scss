@@ -4,30 +4,74 @@
     background-color: $colour-grey-light-1;
     padding: 25rem 0 35rem;
     margin-top: -20vh; // 90vh - 75vh for header element
+
+    @include respond(tab-port) {
+        padding: 25rem 0;
+    }
+    
+    @include respond(phone) {
+        padding: 23rem 0;
+    }
 }
 
 .section-features {
-    @include gradient-image-overlay('../_images/nat-4.jpg');
+    @include gradient-image-overlay('../_images/nat-4-small.jpg');
 
     padding: 20rem 0;
     transform: skewY(-7deg);
     margin-top: -13rem;
 
+    @media 
+        (-webkit-min-device-pixel-ratio: 2) and 
+        (min-width: 37.5em), 
+        (min-resolution: 192dpi) and 
+        (min-width: 37.5em), 
+        (-webkit-max-device-pixel-ratio: 2) and 
+        (min-width: 75em), 
+        (max-resolution: 192dpi) and 
+        (min-width: 75em) {
+            @include gradient-image-overlay('../_images/nat-4.jpg');
+    }
+
     // Select all direct children of parent (.row in this case)
     & > * {
         transform: skewY(7deg);
+    }
+
+    @include respond(tab-port) {
+        padding: 15rem 0;
+    }
+
+    @include respond(phone) {
+        padding: 10rem 0;
     }
 }
 
 .section-tours {
     background-color: $colour-grey-light-1;
-    padding: 25rem 0 15rem 0;
+    padding: 25rem 0 15rem;
     margin-top: -13rem;
+
+    @include respond(tab-port) {
+        padding: 25rem 0 10rem;
+    }
+
+    @include respond(phone) {
+        padding: 22rem 0 7rem;
+    }
 }
 
 .section-stories {
     position: relative;
     padding: 15rem 0;
+
+    @include respond(tab-port) {
+        padding: 10rem 0;
+    }
+
+    @include respond(phone) {
+        padding: 8rem 0;
+    }
 }
 
 .section-book {
@@ -37,6 +81,14 @@
         $colour-primary-light,
         $colour-primary-dark
     );
+
+    @include respond(tab-port) {
+        padding: 10rem 0;
+    }
+
+    @include respond(phone) {
+        // padding: 8rem 0;
+    }
 }
 
 .book {
@@ -48,14 +100,68 @@
             transparent 50%
         ),
         url('../_images/nat-10.jpg');
-    background-size: 100%;
+    background-size: 100%; // ensures fills horizontal axis of container
     border-radius: $border-radius-small;
     box-shadow: 0 1.5rem 4rem rgba($colour-black, 0.25);
 
-    //The overlay is actually a solid colour gradient - white to transparent
+    @media (min-width: 75em) {
+            background-image: linear-gradient(
+            105deg,
+            rgba($colour-white, 0.9) 0%,
+            rgba($colour-white, 0.9) 50%,
+            transparent 50%
+        ),
+        url('../_images/nat-10.jpg');
+    }
+
+    @media (-webkit-min-device-pixel-ratio: 2) and
+           (max-width: 75em), (min-resolution: 192dpi) and
+           (max-width: 75em) {
+                background-image: linear-gradient(
+                    105deg,
+                    rgba($colour-white, 0.9) 0%,
+                    rgba($colour-white, 0.9) 65%,
+                    transparent 65%
+                ),
+                url('../_images/nat-10.jpg');
+                background-size: cover;
+    }
+
+    @media (-webkit-max-device-pixel-ratio: 1.9895833333333333) and
+           (max-width: 75em), 
+           (max-resolution: 191dpi) and
+           (max-width: 75em) {
+                background-image: linear-gradient(
+                    105deg,
+                    rgba($colour-white, 0.9) 0%,
+                    rgba($colour-white, 0.9) 65%,
+                    transparent 65%
+                ),
+                url('../_images/nat-10-small.jpg');
+                background-size: cover;
+    }
+
+    @include respond(tab-port) {
+        background-image: linear-gradient(
+            to right,
+            rgba($colour-white, 0.9) 0%,
+            rgba($colour-white, 0.9) 100%,
+            transparent 0%
+        ),
+        url('../_images/nat-10-small.jpg');
+    }
 
     &__form {
         width: 50%;
         padding: 6rem;
-    }
+
+        @include respond(tab-land) {
+            width: 65%;
+        }
+
+        @include respond(tab-port) {
+            width: 100%;
+        }
+    
+    } 
 }
