@@ -731,11 +731,17 @@ body {
 /*****   HEADER LAYOUT   *****/
 .header {
   position: relative;
-  height: 95vh;
+  height: 85vh;
   background: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../_images/hero-small.jpg");
   background-size: cover;
   background-position: top;
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+@supports (clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%)) {
+  .header {
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    height: 95vh;
+  }
 }
 
 @media (min-resolution: 192dpi) and (min-width: 37.5em), (max-resolution: 191dpi) and (min-width: 75em) {
@@ -1326,24 +1332,25 @@ body {
   }
 }
 
+.backdropfilter .popup {
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.no-backdropfilter .popup {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
 .popup {
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
   z-index: 1004;
   opacity: 0;
   visibility: hidden;
   transition: all .3s;
-}
-
-@supports (backdrop-filter: blur(10px)) {
-  .popup {
-    backdrop-filter: blur(10px);
-    background-color: rgba(0, 0, 0, 0.3);
-  }
 }
 
 .popup__content {
@@ -1526,10 +1533,17 @@ body {
   width: 15rem;
   height: 15rem;
   float: left;
-  shape-outside: circle(50% at 50% 50%);
-  clip-path: circle(50% at 50% 50%);
+  border-radius: 50%;
   transform: translateX(-3rem) skewX(12deg);
   overflow: hidden;
+}
+
+@supports (clip-path: circle(50% at 50% 50%)) {
+  .story__shape {
+    clip-path: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+    border-radius: none;
+  }
 }
 
 @media (max-width: 37.5em) {
@@ -1542,7 +1556,7 @@ body {
   height: 100%;
   transform: translateX(-4rem) scale(1.4);
   backface-visibility: hidden;
-  transition: all .5s;
+  transition: all 0.5s;
 }
 
 .story__text {
@@ -1565,7 +1579,7 @@ body {
   font-size: 1.7rem;
   text-align: center;
   opacity: 0;
-  transition: all .5s;
+  transition: all 0.5s;
   backface-visibility: hidden;
 }
 

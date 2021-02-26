@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8" />
 
+
         <!-- SEO -->
         <meta
             name="description"
@@ -13,18 +14,31 @@
             content="Don't forget to add 20-30 important keywords here."
         />
 
+
         <!-- Mobile viewport optimization -->
         <meta name="HandheldFriendly" content="True" />
         <meta name="MobileOptimized" content="320" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
+
         <!-- Run IE in highest available mode / Chrome frame should start if installed -->
-        <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+        <meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible" />
+
 
         <!-- Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading -->
         <meta http-equiv="cleartype" content="on" />
 
-        <meta name="description" content="*** Enter Details Here ***" />
+
+        <!-- Run html5shiv for IE 6-8 to be able to style HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script>
+                /**
+                * @preserve HTML5 Shiv 3.7.3 | @afarkas @jdalton @jon_neal @rem | MIT/GPL2 Licensed
+                */
+                !function(a,b){function c(a,b){var c=a.createElement("p"),d=a.getElementsByTagName("head")[0]||a.documentElement;return c.innerHTML="x<style>"+b+"</style>",d.insertBefore(c.lastChild,d.firstChild)}function d(){var a=t.elements;return"string"==typeof a?a.split(" "):a}function e(a,b){var c=t.elements;"string"!=typeof c&&(c=c.join(" ")),"string"!=typeof a&&(a=a.join(" ")),t.elements=c+" "+a,j(b)}function f(a){var b=s[a[q]];return b||(b={},r++,a[q]=r,s[r]=b),b}function g(a,c,d){if(c||(c=b),l)return c.createElement(a);d||(d=f(c));var e;return e=d.cache[a]?d.cache[a].cloneNode():p.test(a)?(d.cache[a]=d.createElem(a)).cloneNode():d.createElem(a),!e.canHaveChildren||o.test(a)||e.tagUrn?e:d.frag.appendChild(e)}function h(a,c){if(a||(a=b),l)return a.createDocumentFragment();c=c||f(a);for(var e=c.frag.cloneNode(),g=0,h=d(),i=h.length;i>g;g++)e.createElement(h[g]);return e}function i(a,b){b.cache||(b.cache={},b.createElem=a.createElement,b.createFrag=a.createDocumentFragment,b.frag=b.createFrag()),a.createElement=function(c){return t.shivMethods?g(c,a,b):b.createElem(c)},a.createDocumentFragment=Function("h,f","return function(){var n=f.cloneNode(),c=n.createElement;h.shivMethods&&("+d().join().replace(/[\w\-:]+/g,function(a){return b.createElem(a),b.frag.createElement(a),'c("'+a+'")'})+");return n}")(t,b.frag)}function j(a){a||(a=b);var d=f(a);return!t.shivCSS||k||d.hasCSS||(d.hasCSS=!!c(a,"article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}mark{background:#FF0;color:#000}template{display:none}")),l||i(a,d),a}var k,l,m="3.7.3",n=a.html5||{},o=/^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)$/i,p=/^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)$/i,q="_html5shiv",r=0,s={};!function(){try{var a=b.createElement("a");a.innerHTML="<xyz></xyz>",k="hidden"in a,l=1==a.childNodes.length||function(){b.createElement("a");var a=b.createDocumentFragment();return"undefined"==typeof a.cloneNode||"undefined"==typeof a.createDocumentFragment||"undefined"==typeof a.createElement}()}catch(c){k=!0,l=!0}}();var t={elements:n.elements||"abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output picture progress section summary template time video",version:m,shivCSS:n.shivCSS!==!1,supportsUnknownElements:l,shivMethods:n.shivMethods!==!1,type:"default",shivDocument:j,createElement:g,createDocumentFragment:h,addElements:e};a.html5=t,j(b),"object"==typeof module&&module.exports&&(module.exports=t)}("undefined"!=typeof window?window:this,document);
+            </script>
+        <![endif]-->
+
 
         <!-- FavIcon links
         *********************************************************************** -->
@@ -124,13 +138,19 @@
 
         <!-- Linea Basic Icon Set -->
         <link href="_css/icon-font.css" rel="stylesheet" type="text/css" />
-
-
-
+        
+        
         <!-- CSS Files
         *********************************************************************** -->
-        <link href="_css/myStyles.css" rel="stylesheet" type="text/css" />
 
+        <!-- Stylesheets for browsers other than Internet Explorer 6 -->
+        <!--[if ! lte IE 6]><!-->
+            <link href="_css/myStyles.css" rel="stylesheet" type="text/css" />
+        <!--<![endif]-->
+ 
+        <!--[if lte IE 6]> <link rel="stylesheet" href="http://universal-ie6-css.googlecode.com/files/ie6.1.1.css" media="screen, projection"> <![endif]-->  
+
+        
         <!-- IE Bugs
         *********************************************************************** -->
         <!--Overcome lack of differentiation between device width and viewport width-->
@@ -176,32 +196,25 @@
                 </style>
             <![endif]-->
 
-        <!--Respond.js for IE8 support of media queries-->
+        <!--Respond.js for IE6 - 8 support of media queries-->
         <!--[if lt IE 9]
                 <script src="_scripts/respond.min.js"></script>
             <![endif]-->
 
+        <!--Selectivizr works with any javaScript library to emulate CSS3 pseudo-classes and attribute selectors in IE6 - 8-->    
+        <!--[if lte IE 8]>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
+            <script>window.jQuery || document.write('<script src="_scripts\jQuery-3.5.1.min.js"><\/script>')</script>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js" integrity="sha512-0mXreXYrXoy9laHoypsAOjuSCqh57vY+kIdE46k8Hw0yRY1EhJyHWUEAqfHOTrPkBpsbO39/ZPw5HITv8mLVOA==" crossorigin="anonymous"></script> 
+        <![endif]-->
+
+
         <!-- jQuery
         *********************************************************************** -->
-
-        <!--Fallback in case CDN fails to load
-        *********************************************************************** -->
-        <!--
-            <script>window.jQuery || document.write('<script src="_fallback/jquery-1.12.4.min.js"><\/script>')</script>
-        -->
-
-        <!--Modernizr
-        *********************************************************************** -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script>
-            try {
-                Modernizr;
-            } catch (e) {
-                document.write(
-                    '<script src="_fallback/modernizr-custom-ALL.js"><\/script>',
-                );
-            }
-        </script>
+        <!-- Loaded above for Selectivizr use. If required more generally cut and paste here -->
+        
 
         <!--Cookie Consent
         *********************************************************************** -->
@@ -213,9 +226,6 @@
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
         -->
 
-        <!--Scripts
-        *********************************************************************** -->
-        <script src="_scripts/myScripts.js"></script>
 
         <title>Advanced CSS Skills Website</title>
     </head>
@@ -236,19 +246,34 @@
             <nav class="navigation__nav">
                 <ul class="navigation__list">
                     <li class="navigation__item">
-                        <a href="#" class="navigation__link"><span>01</span></span>About Natours</a>
+                        <a href="#" class="navigation__link">
+                            <span>01</span>
+                            <span>About Natours</span>
+                        </a>
                     </li>
                     <li class="navigation__item">
-                        <a href="#" class="navigation__link"><span>02</span></span>Your Benefits</a>
+                        <a href="#" class="navigation__link">
+                            <span>02</span>
+                            <span>Your Benefits</span>
+                        </a>
                     </li>
                     <li class="navigation__item">
-                        <a href="#" class="navigation__link"><span>03</span></span>Popular Tours</a>
+                        <a href="#" class="navigation__link">
+                            <span>03</span>
+                            <span>Popular Tours</span>
+                        </a>
                     </li>
                     <li class="navigation__item">
-                        <a href="#" class="navigation__link"><span>04</span></span>Stories</a>
+                        <a href="#" class="navigation__link">
+                            <span>04</span>
+                            <span>Stories</span>
+                        </a>
                     </li>
                     <li class="navigation__item">
-                        <a href="#" class="navigation__link"><span>05</span></span>Book Now</a>
+                        <a href="#" class="navigation__link">
+                            <span>05</span>
+                            <span>Book Now</span>
+                        </a>
                     </li>
                 </ul>
             </nav>
@@ -861,6 +886,19 @@
             <i class="scroll-to-top__icon fas fa-angle-double-up"></i>
         </button>
 
-        <script src="_scripts\myScripts.js"></script>
+
+        <!--Modernizr
+        ***************************************************************** -->
+        <script src="_scripts\modernizr-3.6.0-Dev-noShiv-noBeaconAPI.js"></script>
+
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" integrity="sha512-3n19xznO0ubPpSwYCRRBgHh63DrV+bdZfHK52b1esvId4GsfwStQNPJFjeQos2h3JwCmZl0/LgLxSKMAI55hgw==" crossorigin="anonymous"></script>-->
+        <!-- Fallback -->
+        <!-- <script>try{Modernizr} catch(e) {document.write('<script src="__scripts\modernizr-3.6.0-devBuild-noShiv.js"><\/script>')}</script> -->
+
+
+        <!--My Scripts
+        ***************************************************************** -->
+        <script src="_scripts/myScripts.js"></script>
+
     </body>
 </html>
